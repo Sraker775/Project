@@ -2,10 +2,94 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мой первый сайт</title>
+    <title>Страница Матвея</title>
+    <style>
+        /* Основные стили для всей страницы */
+        body {
+            background-color: #f0f0f0; /* Светло-серый фон, чтобы эмодзи были видны */
+            font-family: Arial, sans-serif; /* Более современный шрифт без засечек */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Магия флексбокса для центрирования */
+            justify-content: center; /* Центрирование по горизонтали */
+            align-items: center; /* Центрирование по вертикали */
+            height: 100vh; /* Растянуть на всю высоту экрана */
+            text-align: center; /* Центрирование текста внутри блоков */
+        }
+
+        /* Стили для главного контейнера с контентом */
+        .content-container {
+            border: 2px solid #ccc; /* Легкая рамка вокруг всего */
+            padding: 40px;
+            background-color: white; /* Белый фон для контента */
+            border-radius: 15px; /* Скругленные углы */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Легкая тень */
+        }
+
+        /* Стили для заголовка (твое имя) */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        /* Стили для блока "вокруг взрыва" */
+        .explosion-wrap {
+            position: relative; /* Нужно для позиционирования текста */
+            display: inline-block; /* Блок по размеру контента */
+            margin: 20px 0;
+        }
+
+        .explosion-emoji {
+            font-size: 80px; /* Размер самого взрыва */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Точное центрирование взрыва */
+            opacity: 0.8; /* Немного прозрачности, чтобы текст был виднее */
+        }
+
+        /* Стили для подписи под взрывом */
+        .explosion-label {
+            font-size: 1.2em;
+            font-weight: bold;
+            display: block; /* Сделать блок во всю ширину */
+            margin-top: 50px; /* Отступ, чтобы текст был ниже центра взрыва */
+            color: #333;
+        }
+
+        /* Стили для блока со звездами Давида */
+        .stars-container {
+            margin-top: 30px;
+            font-size: 30px; /* Размер звезд */
+            color: blue; /* Сделать их синими */
+        }
+
+        /* Отступы для текста */
+        p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Привет Матвей Карасёв</h1>
-    <p>Это я свити фокс, скинь 500р на карточку</p>
+
+    <div class="content-container">
+        <!-- Текст, который был на твоем скриншоте -->
+        <p>Привет</p>
+        <h1>Матвей Карасёв</h1>
+
+        <!-- Блок со взрывом и текстом "свити фокс" -->
+        <div class="explosion-wrap">
+            <span class="explosion-emoji">💥</span>
+            <span class="explosion-label">Это я свити фокс, скинь 500р на карточку</span>
+        </div>
+
+        <!-- Блок со звездами Давида -->
+        <div class="stars-container">
+            <span>✡️ ✡️ ✡️</span>
+        </div>
+    </div>
+
 </body>
 </html>
