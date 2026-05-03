@@ -4,90 +4,115 @@
     <meta charset="UTF-8">
     <title>Страница Матвея</title>
     <style>
-        /* Основные стили для всей страницы */
         body {
-            background-color: #f0f0f0; /* Светло-серый фон, чтобы эмодзи были видны */
-            font-family: Arial, sans-serif; /* Более современный шрифт без засечек */
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex; /* Магия флексбокса для центрирования */
-            justify-content: center; /* Центрирование по горизонтали */
-            align-items: center; /* Центрирование по вертикали */
-            height: 100vh; /* Растянуть на всю высоту экрана */
-            text-align: center; /* Центрирование текста внутри блоков */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Стили для главного контейнера с контентом */
         .content-container {
-            border: 2px solid #ccc; /* Легкая рамка вокруг всего */
+            max-width: 600px;
+            width: 100%;
+            background-color: white;
             padding: 40px;
-            background-color: white; /* Белый фон для контента */
-            border-radius: 15px; /* Скругленные углы */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Легкая тень */
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
-        /* Стили для заголовка (твое имя) */
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
+        .greeting { font-size: 1.5em; color: #555; margin-bottom: 0; }
+        .name { font-size: 3.5em; margin: 10px 0; font-weight: 800; }
 
-        /* Стили для блока "вокруг взрыва" */
-        .explosion-wrap {
-            position: relative; /* Нужно для позиционирования текста */
-            display: inline-block; /* Блок по размеру контента */
-            margin: 20px 0;
+        /* Исправленный блок взрыва */
+        .explosion-box {
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column; /* Элементы один под другим */
+            align-items: center;
         }
 
         .explosion-emoji {
-            font-size: 80px; /* Размер самого взрыва */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Точное центрирование взрыва */
-            opacity: 0.8; /* Немного прозрачности, чтобы текст был виднее */
+            font-size: 100px;
+            line-height: 1;
+            margin-bottom: 15px; /* Отступ между бабахом и текстом */
         }
 
-        /* Стили для подписи под взрывом */
-        .explosion-label {
+        .money-text {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .stars {
+            font-size: 40px;
+            margin: 25px 0;
+            letter-spacing: 15px;
+        }
+
+        /* Блок Википедии */
+        .wiki-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: left;
+        }
+
+        .wiki-title {
             font-size: 1.2em;
             font-weight: bold;
-            display: block; /* Сделать блок во всю ширину */
-            margin-top: 50px; /* Отступ, чтобы текст был ниже центра взрыва */
-            color: #333;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Стили для блока со звездами Давида */
-        .stars-container {
-            margin-top: 30px;
-            font-size: 30px; /* Размер звезд */
-            color: blue; /* Сделать их синими */
+        .wiki-text {
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.5;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
         }
 
-        /* Отступы для текста */
-        p {
-            font-size: 1.5em;
-            margin: 10px 0;
+        .wiki-link {
+            color: #36b;
+            text-decoration: none;
         }
+        
+        .wiki-link:hover { text-decoration: underline; }
 
     </style>
 </head>
 <body>
 
     <div class="content-container">
-        <!-- Текст, который был на твоем скриншоте -->
-        <p>Привет</p>
-        <h1>Матвей Карасёв</h1>
+        <p class="greeting">Привет</p>
+        <h1 class="name">Матвей Карасёв</h1>
 
-        <!-- Блок со взрывом и текстом "свити фокс" -->
-        <div class="explosion-wrap">
-            <span class="explosion-emoji">💥</span>
-            <span class="explosion-label">Это я свити фокс, скинь 500р на карточку</span>
+        <div class="explosion-box">
+            <div class="explosion-emoji">💥</div>
+            <div class="money-text">Это я свити фокс, скинь 500р на карточку</div>
         </div>
 
-        <!-- Блок со звездами Давида -->
-        <div class="stars-container">
-            <span>✡️ ✡️ ✡️</span>
+        <div class="stars">✡️ ✡️ ✡️</div>
+
+        <!-- Секция Википедии про Скибиди Туалеты -->
+        <div class="wiki-section">
+            <div class="wiki-title">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Wikipedia_icon.svg" width="20" alt="Wiki">
+                Skibidi Toilet (Материал из Википедии)
+            </div>
+            <div class="wiki-text">
+                <p><strong>Skibidi Toilet</strong> — веб-сериал, созданный аниматором Алексеем Герасимовым на YouTube-канале «DaFuq!?Boom!». Сюжет повествует о войне между «Скибиди Туалетами» (головами из унитазов) и «Агентами» (людьми с камерами, колонками или телевизорами вместо голов).</p>
+                <a href="https://ru.wikipedia.org/wiki/Skibidi_Toilet" target="_blank" class="wiki-link">Читать далее в Википедии →</a>
+            </div>
         </div>
     </div>
 
