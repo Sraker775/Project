@@ -2,119 +2,144 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Страница Матвея</title>
+    <title>УЛЬТРА МАТВЕЙ 3000</title>
     <style>
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10px { transform: translate(-1px, -2px) rotate(-1deg); }
+            20px { transform: translate(-3px, 0px) rotate(1deg); }
+            30px { transform: translate(3px, 2px) rotate(0deg); }
+            40px { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            100% { transform: translate(1px, 1px) rotate(0deg); }
+        }
+
+        @keyframes moneyFly {
+            0% { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(-500px) rotate(360deg); opacity: 0; }
+        }
+
         body {
-            background-color: #f0f0f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle, #333, #000);
+            color: white;
+            font-family: 'Comic Sans MS', cursive;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
         .content-container {
-            max-width: 600px;
-            width: 100%;
-            background-color: white;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 30px;
+            border: 3px solid #✡️;
             text-align: center;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
         }
 
-        .greeting { font-size: 1.5em; color: #555; margin-bottom: 0; }
-        .name { font-size: 3.5em; margin: 10px 0; font-weight: 800; }
+        .name {
+            font-size: 4em;
+            text-shadow: 0 0 20px #ff0000;
+            margin: 10px 0;
+        }
 
-        /* Исправленный блок взрыва */
         .explosion-box {
-            margin: 30px 0;
-            display: flex;
-            flex-direction: column; /* Элементы один под другим */
-            align-items: center;
+            cursor: pointer;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .explosion-box:hover .explosion-emoji {
+            animation: shake 0.2s infinite;
         }
 
         .explosion-emoji {
-            font-size: 100px;
-            line-height: 1;
-            margin-bottom: 15px; /* Отступ между бабахом и текстом */
+            font-size: 120px;
+            display: inline-block;
         }
 
-        .money-text {
-            font-size: 1.3em;
+        .btn-donate {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5em;
             font-weight: bold;
-            color: #222;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+            margin: 20px 0;
         }
 
-        .stars {
-            font-size: 40px;
-            margin: 25px 0;
-            letter-spacing: 15px;
+        .btn-donate:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #00ffff;
         }
 
-        /* Блок Википедии */
+        .money-particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 30px;
+            z-index: 100;
+        }
+
+        .stars { font-size: 50px; margin: 20px 0; color: #0047AB; }
+
         .wiki-section {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
             text-align: left;
+            margin-top: 30px;
+            border-left: 5px solid #fff;
         }
 
-        .wiki-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .wiki-text {
-            font-size: 0.95em;
-            color: #444;
-            line-height: 1.5;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-
-        .wiki-link {
-            color: #36b;
-            text-decoration: none;
-        }
-        
-        .wiki-link:hover { text-decoration: underline; }
-
+        .wiki-link { color: #00ffff; }
     </style>
 </head>
 <body>
 
     <div class="content-container">
-        <p class="greeting">Привет</p>
-        <h1 class="name">Матвей Карасёв</h1>
+        <p>КТО ТУТ ГЛАВНЫЙ?</p>
+        <h1 class="name">МАТВЕЙ КАРАСЁВ</h1>
 
-        <div class="explosion-box">
+        <div class="explosion-box" onclick="alert('БА-БАХ! ГДЕ ДЕНЬГИ?')">
             <div class="explosion-emoji">💥</div>
-            <div class="money-text">Это я свити фокс, скинь 500р на карточку</div>
+            <div style="font-size: 1.5em;">СВИТИ ФОКС ЗДЕСЬ</div>
         </div>
+
+        <br>
+        <button class="btn-donate" onclick="spawnMoney()">СКИНУТЬ 500Р</button>
 
         <div class="stars">✡️ ✡️ ✡️</div>
 
-        <!-- Секция Википедии про Скибиди Туалеты -->
         <div class="wiki-section">
-            <div class="wiki-title">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Wikipedia_icon.svg" width="20" alt="Wiki">
-                Skibidi Toilet (Материал из Википедии)
-            </div>
-            <div class="wiki-text">
-                <p><strong>Skibidi Toilet</strong> — веб-сериал, созданный аниматором Алексеем Герасимовым на YouTube-канале «DaFuq!?Boom!». Сюжет повествует о войне между «Скибиди Туалетами» (головами из унитазов) и «Агентами» (людьми с камерами, колонками или телевизорами вместо голов).</p>
-                <a href="https://ru.wikipedia.org/wiki/Skibidi_Toilet" target="_blank" class="wiki-link">Читать далее в Википедии →</a>
-            </div>
+            <h3 style="margin-top:0">🚽 SKIBIDI WIKI</h3>
+            <p>Скибиди-туалеты — это не просто головы в унитазах. Это экзистенциальный кризис поколения Альфа, воплощенный в вечной битве против Камерамэнов.</p>
+            <a href="https://ru.wikipedia.org/wiki/Skibidi_Toilet" target="_blank" class="wiki-link">Изучить лор подробнее →</a>
         </div>
     </div>
+
+    <script>
+        function spawnMoney() {
+            for(let i=0; i<15; i++) {
+                const money = document.createElement('div');
+                money.innerText = '💸';
+                money.className = 'money-particle';
+                money.style.left = Math.random() * window.innerWidth + 'px';
+                money.style.top = window.innerHeight + 'px';
+                money.style.animation = `moneyFly ${1 + Math.random()}s linear forwards`;
+                document.body.appendChild(money);
+                setTimeout(() => money.remove(), 2000);
+            }
+        }
+    </script>
 
 </body>
 </html>
